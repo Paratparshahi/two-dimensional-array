@@ -1,0 +1,80 @@
+from sys import stdin
+
+def findLargest(arr, nRows, mCols):
+    if(nRows==0 and mCols==0):
+        print("row 0 -2147483648")
+        return
+    max =-1
+    index=-1
+    for i in range(nRows):
+        sum=0
+        for j in range(mCols):
+            sum+=arr[i][j]
+        if sum>max:
+            max=sum 
+            index ='row' +' '+ str(i)+' '+str(sum)  
+    for j in range(mCols):
+        sum=0
+        for i in range(nRows):
+            sum+=arr[i][j]
+        if sum>max:
+            max=sum 
+            index='column' +' '+ str(j)+' '+str(sum) 
+            
+    print(index)
+    print()
+    
+    
+ 
+                       
+                       
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Taking Input Using Fast I/O
+def take2DInput() :
+    li = stdin.readline().rstrip().split(" ")
+    nRows = int(li[0])
+    mCols = int(li[1])
+    
+    if nRows == 0 :
+        return list(), 0, 0
+    
+    mat = [list(map(int, input().strip().split(" "))) for row in range(nRows)]
+    return mat, nRows, mCols
+
+
+#main
+t = int(stdin.readline().rstrip())
+
+while t > 0 :
+
+    mat, nRows, mCols = take2DInput()
+    findLargest(mat, nRows, mCols)
+
+    t -= 1
